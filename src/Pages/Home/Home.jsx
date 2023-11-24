@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import Slider from "../../Components/Slider/Slider";
 
 const Home = () => {
   return (
@@ -6,7 +7,7 @@ const Home = () => {
       <Helmet>
         <title>Global Times | Home</title>
       </Helmet>
-      <h1>This is home</h1>
+      <Slider />
     </div>
   );
 };

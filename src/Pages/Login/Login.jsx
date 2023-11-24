@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "./../../Authentication/Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { googleSignIn, signIn } = useContext(AuthContext);
@@ -67,9 +68,12 @@ const Login = () => {
 
   return (
     <div style={glassmorphismContainerStyle}>
+      <Helmet>
+        <title>Global Times | Log In</title>
+      </Helmet>
       <div
         style={glassmorphismContentStyle}
-        className="card flex-shrink-0 shadow-2xl"
+        className="card flex-shrink-0 shadow-2xl mt-20"
       >
         <div className=" ">
           <div className="text-center mb-4">
@@ -119,7 +123,10 @@ const Login = () => {
                   onChange={(e) => setPass(e.target.value)}
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <a
+                    href="#"
+                    className="label-text-alt link link-hover text-yellow-300"
+                  >
                     Forgot password?
                   </a>
                 </label>

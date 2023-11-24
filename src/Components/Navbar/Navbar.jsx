@@ -138,14 +138,21 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <NavLink to="logIn">
-              <a className="btn bg-violet-400 rounded text-black hover:text-white">
-                Log In
-              </a>
-            </NavLink>
+            <div className="flex items-center gap-3">
+              <NavLink to="/logIn">
+                <a className="btn bg-yellow-400 rounded-full text-black hover:text-white">
+                  Sign In
+                </a>
+              </NavLink>
+              <NavLink to="/registration">
+                <a className="btn bg-violet-400 rounded-full text-black hover:text-white">
+                  Registration
+                </a>
+              </NavLink>
+            </div>
           )}
         </div>
-        {/* this is for showen name and img when login */}
+
         <div className="lg:hidden  ">
           {user?.photoURL ? (
             <div className="">

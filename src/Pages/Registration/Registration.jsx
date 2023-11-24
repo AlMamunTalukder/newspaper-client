@@ -1,7 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "./../PrivateRouter/AuthProvider";
+
 import swal from "sweetalert";
+import { AuthContext } from "../../Authentication/Providers/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -64,8 +66,11 @@ const Registration = () => {
 
   return (
     <div style={glassmorphismContainerStyle}>
+      <Helmet>
+        <title>Global Times | Registration</title>
+      </Helmet>
       <div
-        className="card flex-shrink-0 shadow-2xl"
+        className="card flex-shrink-0 shadow-2xl mt-20"
         style={glassmorphismContentStyle}
       >
         <div className=" ">
