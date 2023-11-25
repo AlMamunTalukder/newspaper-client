@@ -31,7 +31,7 @@ const AddArticles = () => {
     };
     console.log(addArticle);
 
-    fetch("http://localhost:5000/articles", {
+    fetch("https://newspaper-final-server.vercel.app/articles", {
       method: "POST",
       headers: {
         "content-type": "application/json",

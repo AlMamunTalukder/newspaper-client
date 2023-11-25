@@ -27,7 +27,8 @@ const router = createBrowserRouter([
       {
         path: "/addArticles",
         element: <AddArticles />,
-        loader: () => fetch("http://localhost:5000/publishers"),
+        loader: () =>
+          fetch("https://newspaper-final-server.vercel.app/publishers"),
       },
     ],
   },
