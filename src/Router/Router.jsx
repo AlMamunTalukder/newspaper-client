@@ -5,6 +5,7 @@ import Home from "../Pages/Home/Home";
 import Login from "./../Pages/Login/Login";
 import Registration from "./../Pages/Registration/Registration";
 import AddArticles from "../Pages/AddArticles/AddArticles";
+import AllArticles from "./../Components/Articles/AllArticles";
 
 const router = createBrowserRouter([
   {
@@ -27,8 +28,12 @@ const router = createBrowserRouter([
       {
         path: "/addArticles",
         element: <AddArticles />,
-        loader: () =>
-          fetch("https://newspaper-final-server.vercel.app/publishers"),
+        loader: () => fetch("http://localhost:5000/publishers"),
+      },
+      {
+        path: "/allArticles",
+        element: <AllArticles />,
+        loader: () => fetch("http://localhost:5000/articles"),
       },
     ],
   },

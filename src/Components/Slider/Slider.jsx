@@ -1,9 +1,9 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import img1 from "../../assets/home/01.jpg";
-import img2 from "../../assets/home/02.jpg";
-import img3 from "../../assets/home/03.png";
-import img4 from "../../assets/home/04.jpg";
+import img1 from "../../assets/home/s1.webp";
+import img2 from "../../assets/home/s2.webp";
+import img3 from "../../assets/home/s3.webp";
+import img4 from "../../assets/home/s4.webp";
 import img5 from "../../assets/home/05.png";
 import img6 from "../../assets/home/06.png";
 const Slider = () => {
@@ -13,25 +13,25 @@ const Slider = () => {
       infiniteLoop
       showStatus={false}
       showThumbs={false}
-      className="text-center"
+      className="text-center "
     >
-      <div>
+      <div className="h-[600px]">
         <img src={img1} />
       </div>
-      <div>
+      <div className="h-[600px]">
         <img src={img2} />
       </div>
-      <div>
+      <div className="h-[600px]">
         <img src={img3} />
       </div>
-      <div>
+      <div className="h-[600px]">
         <img src={img4} />
       </div>
-      <div>
-        <img src={img5} />
+      <div className="h-[600px]">
+        <img src="https://i.ibb.co/XZfgV00/slide1.png" />
       </div>
-      <div>
-        <img src={img6} />
+      <div className="h-[600px]">
+        <img src="https://i.ibb.co/vCWDLSZ/slide1.png" />
       </div>
     </Carousel>
   );
