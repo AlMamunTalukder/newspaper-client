@@ -19,7 +19,7 @@ const Login = () => {
     googleSignIn().then((response) => {
       console.log(response.user);
       swal("Welcome", "Log in Successful", "success");
-      navigate("/");
+      navigate(location?.state ? location?.state : "/");
     });
   };
 
