@@ -37,6 +37,7 @@ const Registration = () => {
       }
     }
   };
+
   const glassmorphismContainerStyle = {
     background: 'url("https://i.ibb.co/fXgxHq3/undefined-Imgur.jpg")',
     backgroundSize: "cover",

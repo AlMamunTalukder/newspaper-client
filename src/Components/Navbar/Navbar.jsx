@@ -33,51 +33,68 @@ const Navbar = () => {
           All Articles
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/subscription"
-          className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-violet-400 underline" : ""
-          }
-        >
-          Subscription
-        </NavLink>
-      </li>
       {user && (
-        <li tabIndex={0} style={{ zIndex: 9999 }} className="w-36">
-          <details>
-            <summary>Dash Board</summary>
-            <ul className="">
-              <li className="">
-                <NavLink
-                  to="/myServices"
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "text-violet-400 underline"
-                      : "w-28"
-                  }
-                >
-                  My Articles
-                </NavLink>
-              </li>
-              <li className="">
-                <NavLink
-                  to="/addArticles"
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "text-violet-400 underline"
-                      : "w-28"
-                  }
-                >
-                  Add Articles
-                </NavLink>
-              </li>
-            </ul>
-          </details>
+        <li>
+          <NavLink
+            to="/subscription"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-violet-400 underline"
+                : ""
+            }
+          >
+            Subscription
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li className="">
+          <NavLink
+            to="/myServices"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-violet-400 underline"
+                : "w-28"
+            }
+          >
+            My Articles
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li className="">
+          <NavLink
+            to="/myServices"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-violet-400 underline"
+                : "w-28"
+            }
+          >
+            Dash Board
+          </NavLink>
+        </li>
+      )}
+      {user && (
+        <li className="">
+          <NavLink
+            to="/addArticles"
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-violet-400 underline"
+                : "w-28"
+            }
+          >
+            Add Articles
+          </NavLink>
         </li>
       )}
       {user && (

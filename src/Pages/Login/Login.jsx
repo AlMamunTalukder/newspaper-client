@@ -35,6 +35,7 @@ const Login = () => {
 
         .catch((error) => {
           setError(error.message);
+          swal("Error", "Invalid Email or Password.", "error");
         });
     }
   };

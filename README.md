@@ -1,8 +1,10 @@
-# React + Vite
+Website Name #Global Times
+#Live Link: https://newspaper-final-assignment.netlify.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a newspaper website. It has many more features. Here is some features:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Login, registration with google login.
+- Subscription system for premium user.
+- Show articles, add articles, articles are difference for premium user and other user.
+- Dashboard for control the website.
+- Payment system
