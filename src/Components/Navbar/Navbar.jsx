@@ -149,7 +149,7 @@ const Navbar = () => {
                 <div className="w-10 h-10 rounded-full bg-gray-500 mr-2"></div>
               )}
               <p className="mr-2">{user.displayName}</p>
-              {/* <p>{user.email}</p> */}
+
               <button onClick={handleLogOut} className="btn btn-primary ml-2">
                 Log Out
               </button>

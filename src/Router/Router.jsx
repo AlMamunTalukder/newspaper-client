@@ -51,7 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/subscription",
-        element: <Subscription />,
+        element: (
+          <PrivateRouter>
+            <Subscription />
+          </PrivateRouter>
+        ),
       },
     ],
   },

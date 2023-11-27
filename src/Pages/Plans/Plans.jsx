@@ -105,7 +105,7 @@ const Plans = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                  <span></span>
+                  <span>The Global Times ePaper</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <svg
