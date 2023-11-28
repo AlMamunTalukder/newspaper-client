@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 const AllArticles = () => {
   const allArticles = useLoaderData([]);
+
   return (
     <div className="">
       <Helmet>

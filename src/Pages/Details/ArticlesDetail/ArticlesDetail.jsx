@@ -17,7 +17,7 @@ const ArticlesDetail = () => {
     }
   }, [_id]);
   return (
-    <div className="items-center justify-center pt-24 ">
+    <div className="items-center justify-center pt-24 mb-10 ">
       <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md bg-gray-900 text-gray-100  ml-[100px] md:ml-[200px] lg:ml-[500px] ">
         <div className="flex space-x-4">
           <div className="flex flex-col space-y-1">

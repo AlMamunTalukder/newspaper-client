@@ -76,7 +76,7 @@ const MyArticles = () => {
       });
   };
   return (
-    <div className="pt-28">
+    <div className="pt-28 mb-10">
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
