@@ -10,6 +10,8 @@ import AllArticles from "./../Components/Articles/AllArticles";
 import ArticlesDetail from "../Pages/Details/ArticlesDetail/ArticlesDetail";
 import PrivateRouter from "./../Authentication/PrivateRouter/PrivateRouter";
 import Subscription from "../Pages/Subscription/Subscription";
+import UserProfile from "../Pages/UserProfile/UserProfile";
+import MyArticles from "../Pages/MyArticles/MyArticles";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +58,28 @@ const router = createBrowserRouter([
             <Subscription />
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/userProfile",
+        element: (
+          <PrivateRouter>
+            <UserProfile />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/myArticles",
+        element: (
+          <PrivateRouter>
+            <MyArticles />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/detail/:id",
+        element: <ArticlesDetail />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/article/${params.id}`),
       },
     ],
   },

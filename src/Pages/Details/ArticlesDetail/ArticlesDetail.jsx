@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ArticlesDetail = () => {
   const articleDetails = useLoaderData([]);
-  const { _id, title, publisher, tags, image, description, publisherEmail } =
+  const { _id, title, publisher, tags, image, description } =
     articleDetails || {};
 
   useEffect(() => {

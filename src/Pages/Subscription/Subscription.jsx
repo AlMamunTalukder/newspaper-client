@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const Subscription = () => {
@@ -12,7 +13,7 @@ const Subscription = () => {
       case "1 Minute":
         return "$24";
       case "5 Days":
-        return "$50"; // You can adjust the prices accordingly
+        return "$50";
       case "10 Days":
         return "$80";
       default:
@@ -21,6 +22,9 @@ const Subscription = () => {
   };
   return (
     <div className="pt-20">
+      <Helmet>
+        <title>Global Times | Susbcription</title>
+      </Helmet>
       <div className="p-6 py-6  bg-violet-400  text-gray-900 rounded-xl">
         <div className="container mx-auto ">
           <div className="flex flex-col lg:flex-row items-center justify-between">

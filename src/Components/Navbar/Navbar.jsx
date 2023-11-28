@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "./../../Authentication/Providers/AuthProvider";
 import icon from "../../assets/newspaper.svg";
 import logo from "../../assets/Global_N.png";
@@ -52,7 +52,7 @@ const Navbar = () => {
       {user && (
         <li className="">
           <NavLink
-            to="/myServices"
+            to="/myArticles"
             className={({ isActive, isPending }) =>
               isPending
                 ? "pending"
@@ -140,11 +140,13 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center">
               {user.photoURL ? (
-                <img
-                  src={user.photoURL}
-                  alt={`${user.displayName}'s profile`}
-                  className="w-10 h-10 rounded-full mr-2"
-                />
+                <Link to="/userProfile">
+                  <img
+                    src={user.photoURL}
+                    alt={`${user.displayName}'s profile`}
+                    className="w-10 h-10 rounded-full mr-2"
+                  />
+                </Link>
               ) : (
                 <div className="w-10 h-10 rounded-full bg-gray-500 mr-2"></div>
               )}
@@ -172,12 +174,14 @@ const Navbar = () => {
 
         <div className="lg:hidden  ">
           {user?.photoURL ? (
-            <div className="">
-              <img
-                src={user.photoURL}
-                className="w-10 h-10 rounded-full ml-24 -mr-20"
-              />
-            </div>
+            <Link to="/userProfile">
+              <div className="">
+                <img
+                  src={user.photoURL}
+                  className="w-10 h-10 rounded-full ml-24 -mr-20"
+                />
+              </div>
+            </Link>
           ) : (
             <div></div>
           )}

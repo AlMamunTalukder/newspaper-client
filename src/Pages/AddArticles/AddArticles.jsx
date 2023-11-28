@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Authentication/Providers/AuthProvider";
 import swal from "sweetalert";
+import { Helmet } from "react-helmet";
 
 const AddArticles = () => {
   const publishers = useLoaderData();
@@ -48,6 +49,9 @@ const AddArticles = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Global Times | Add Articles</title>
+      </Helmet>
       <div className="">
         <div className="container mx-auto p-4 ">
           <form

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 const ArticlesCard = ({ article }) => {
-  const { _id, title, publisher, tags, image, description, publisherEmail } =
-    article || {};
+  const { _id, title, publisher, tags, image, description } = article || {};
 
   console.log(tags);
 
