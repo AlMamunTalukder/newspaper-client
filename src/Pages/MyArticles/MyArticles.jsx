@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Authentication/Providers/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyArticles = () => {
   const { user } = useContext(AuthContext);
@@ -13,10 +14,31 @@ const MyArticles = () => {
       .then((data) => setMyArticles(data));
   }, [user]);
 
-  // this is for details
-  const articleDetails = useLoaderData([]);
-  const { _id } = articleDetails || {};
-
+  const handleDelete = (_id) => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/article/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            const remaining = myArticles.filter((item) => item._id !== _id);
+            setMyArticles(remaining); //this line for delete
+          });
+      }
+    });
+  };
   return (
     <div className="pt-28">
       <div className="overflow-x-auto">
@@ -40,7 +62,7 @@ const MyArticles = () => {
                 <th>{index + 1}</th>
                 <td>{item.title}</td>
                 <td>
-                  <Link to={`/details/${_id}`}>
+                  <Link to={`/details/${item._id}`}>
                     <button className="text-blue-400 btn">Details</button>
                   </Link>
                 </td>
@@ -57,7 +79,12 @@ const MyArticles = () => {
                 </td>
                 <td>
                   <Link>
-                    <button className="btn btn-error">Delete</button>
+                    <button
+                      className="btn btn-error"
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete
+                    </button>
                   </Link>
                 </td>
               </tr>
