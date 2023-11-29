@@ -37,8 +37,8 @@ const AddPublisher = () => {
       </Helmet>
       <div className=" -mt-96 ml-96 w-96">
         <form
-          className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow  bg-gray-900"
           onSubmit={handlePublisher}
+          className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow  bg-gray-900"
         >
           <h2 className="w-full text-3xl font-bold text-center">
             Add A Publisher
