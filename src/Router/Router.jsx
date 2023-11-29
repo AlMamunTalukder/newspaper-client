@@ -12,6 +12,9 @@ import PrivateRouter from "./../Authentication/PrivateRouter/PrivateRouter";
 import Subscription from "../Pages/Subscription/Subscription";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 import MyArticles from "../Pages/MyArticles/MyArticles";
+import DashBoard from "../Layout/DashBoard";
+import AddPublisher from "../Pages/DashBoard/AddPublisher/AddPublisher";
+import Chart from "../Pages/DashBoard/Charts/Chart";
 
 const router = createBrowserRouter([
   {
@@ -80,6 +83,21 @@ const router = createBrowserRouter([
         element: <ArticlesDetail />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/article/${params.id}`),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashBoard />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "addPublisher",
+        element: <AddPublisher />,
+      },
+      {
+        path: "charts",
+        element: <Chart />,
       },
     ],
   },
