@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ArticlesDetail = () => {
   const articleDetails = useLoaderData([]);
-  const { _id, title, publisher, tags, image, description } =
+  const { _id, title, publisher, tags, image, description, createdAt } =
     articleDetails || {};
 
   useEffect(() => {
@@ -24,10 +24,13 @@ const ArticlesDetail = () => {
             <a rel="" className="text-xl font-semibold">
               {title}
             </a>
-            <span className="text-xs text-gray-400">{publisher}</span>
+            <span className="text-xs text-gray-400">
+              Publisher: {publisher}
+            </span>
             <div className="text-sm text-gray-400">
               view: {articleDetails.viewCount || 0}
             </div>
+            <div className="text-sm text-gray-400">Date: {createdAt}</div>
           </div>
         </div>
         <div>

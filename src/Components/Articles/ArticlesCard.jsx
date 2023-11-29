@@ -13,7 +13,7 @@ const ArticlesCard = ({ article }) => {
 
       <div className="card-body -mt-8">
         <span>
-          <h1 className="text-sm ">{tags}</h1>
+          <h1 className="text-sm ">{tags.join(", ")}</h1>
         </span>
         <h2 className="card-title text-white ">{title}</h2>
         <span>

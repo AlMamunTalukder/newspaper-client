@@ -15,6 +15,8 @@ import MyArticles from "../Pages/MyArticles/MyArticles";
 import DashBoard from "../Layout/DashBoard";
 import AddPublisher from "../Pages/DashBoard/AddPublisher/AddPublisher";
 import Chart from "../Pages/DashBoard/Charts/Chart";
+import AllUsers from "./../Pages/DashBoard/AllUsers/AllUsers";
+import DashboardAllArticles from "../Pages/DashBoard/DashboardAllArticles/DashboardAllArticles";
 
 const router = createBrowserRouter([
   {
@@ -98,6 +100,14 @@ const router = createBrowserRouter([
       {
         path: "charts",
         element: <Chart />,
+      },
+      {
+        path: "allArticles",
+        element: <DashboardAllArticles />,
+      },
+      {
+        path: "allUsers",
+        element: <AllUsers />,
       },
     ],
   },

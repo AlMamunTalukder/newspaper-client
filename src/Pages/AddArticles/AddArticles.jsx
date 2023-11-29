@@ -21,6 +21,7 @@ const AddArticles = () => {
     const image = form.image.value;
     const description = form.description.value;
     const email = user?.email;
+    const logo = user?.photoURL;
 
     const addArticle = {
       title,
@@ -29,6 +30,9 @@ const AddArticles = () => {
       image,
       description,
       publisherEmail: email,
+      createdAt: new Date().toISOString(),
+      logo,
+      status: "pending",
     };
     console.log(addArticle);
 
