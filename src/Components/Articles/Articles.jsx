@@ -22,7 +22,7 @@ const Articles = () => {
           Trending Articles
         </h3>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3  w-64 md:w-auto lg:w-auto gap-16 space-x-4 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3  w-60 md:w-auto lg:w-auto gap-8 space-x-2 ">
           {displayedArticles.map((article) => (
             <ArticlesCard key={article._id} article={article}></ArticlesCard>
           ))}

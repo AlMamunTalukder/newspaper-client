@@ -12,7 +12,7 @@ const AllArticles = () => {
       </Helmet>
 
       <div className=" pt-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3  w-64 md:w-auto lg:w-auto gap-10 space-x-4 ">
+        <div className="grid grid-cols-1 lg:grid-cols-3 w-64 md:w-auto lg:w-auto gap-8 space-x-4 ">
           {allArticles.map((article) => (
             <ArticlesCard key={article._id} article={article}></ArticlesCard>
           ))}

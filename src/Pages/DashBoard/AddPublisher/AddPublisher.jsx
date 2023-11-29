@@ -1,8 +1,45 @@
+import { Helmet } from "react-helmet";
+import swal from "sweetalert";
+
 const AddPublisher = () => {
+  const handlePublisher = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const name = form.name.value;
+    const logo = form.logo.value;
+
+    const addPublisher = {
+      name,
+      logo,
+    };
+    console.log(addPublisher);
+
+    fetch("http://localhost:5000/publishers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addPublisher),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          swal("Welcome", "Pulisher Added Successfully", "success");
+        }
+      });
+  };
   return (
     <div>
+      <Helmet>
+        <title>Global Times | Add Publisher</title>
+      </Helmet>
       <div className=" -mt-96 ml-96 w-96">
-        <form className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow  bg-gray-900">
+        <form
+          className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow  bg-gray-900"
+          onSubmit={handlePublisher}
+        >
           <h2 className="w-full text-3xl font-bold text-center">
             Add A Publisher
           </h2>
