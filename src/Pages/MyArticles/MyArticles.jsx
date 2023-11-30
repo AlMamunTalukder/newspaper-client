@@ -102,10 +102,12 @@ const MyArticles = () => {
                     <button className="text-blue-400 btn">Details</button>
                   </Link>
                 </td>
-                <td>approved | Decline</td>
+                <td>{item.status}</td>
                 <td>
                   <Link>
-                    <button className="text-yellow-300 btn">No</button>
+                    <button className="text-yellow-300 btn">
+                      {item.status}
+                    </button>
                   </Link>
                 </td>
                 <td>

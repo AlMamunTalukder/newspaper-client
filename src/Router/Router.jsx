@@ -17,6 +17,7 @@ import AddPublisher from "../Pages/DashBoard/AddPublisher/AddPublisher";
 import Chart from "../Pages/DashBoard/Charts/Chart";
 import AllUsers from "./../Pages/DashBoard/AllUsers/AllUsers";
 import DashboardAllArticles from "../Pages/DashBoard/DashboardAllArticles/DashboardAllArticles";
+import PremuimArticles from "../Components/Articles/PremuimArticles";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
             <AllArticles />
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/articles"),
+        loader: () => fetch("http://localhost:5000/article/status/approved"),
       },
       {
         path: "/details/:id",
@@ -85,6 +86,14 @@ const router = createBrowserRouter([
         element: <ArticlesDetail />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/article/${params.id}`),
+      },
+      {
+        path: "/premiumArticles",
+        element: (
+          <PrivateRouter>
+            <PremuimArticles />
+          </PrivateRouter>
+        ),
       },
     ],
   },

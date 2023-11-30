@@ -7,7 +7,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/articles")
+    fetch("http://localhost:5000/article/status/approved")
       .then((res) => res.json())
       .then((data) => setArticles(data));
   }, []);

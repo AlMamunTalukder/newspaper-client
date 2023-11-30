@@ -41,40 +41,45 @@ const DashboardAllArticles = () => {
     });
   };
 
-  const handleUpdateService = (e, _id) => {
-    // e.preventDefault();
-    const form = e.target;
-    const title = form.title.value;
-    const image = form.image.value;
-    const tags = form.tags.value;
-    const description = form.description.value;
-
-    const purchase = {
-      title,
-      image,
-      tags,
-      description,
-    };
-    console.log(purchase);
-    fetch(`http://localhost:5000/article/${_id}`, {
+  const handleApprove = (_id) => {
+    fetch(`http://localhost:5000/article/approved/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(purchase),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          swal("Welcome", "Service Update successfully", "success");
+          swal("Welcome", "Article Approved successfully", "success");
         }
       })
       .catch((error) => {
         console.log(error);
-        swal("Error", "Service Update failed", "error");
+        swal("Error", "Article Approval failed", "error");
       });
   };
+  const handlePremium = (_id) => {
+    fetch(`http://localhost:5000/article/premium/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          swal("Welcome", "Article set as Premium successfully", "success");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        swal("Error", "Setting Article as Premium failed", "error");
+      });
+  };
+
   return (
     <div className="-mt-[420px] ml-56 w-96 ">
       <div className="overflow-x-auto h-screen  w-[1170px]">
@@ -95,7 +100,7 @@ const DashboardAllArticles = () => {
             </tr>
           </thead>
           <tbody>
-            {myArticles.map((item, index) => (
+            {myArticles.map((item) => (
               <tr key={item._id} className="hover">
                 {/* <td className="-ml-5">{index + 1}</td> */}
                 <td className="-ml-10">{item.title}</td>
@@ -128,7 +133,10 @@ const DashboardAllArticles = () => {
 
                 <td className="w-2">
                   <Link>
-                    <button className="text-yellow-300 btn btn-sm -ml-5">
+                    <button
+                      className="text-yellow-300 btn btn-sm -ml-5"
+                      onClick={() => handleApprove(item._id)}
+                    >
                       Approve
                     </button>
                   </Link>
@@ -168,7 +176,6 @@ const DashboardAllArticles = () => {
                               onSubmit={(e) => {
                                 e.preventDefault();
                                 console.log("hello");
-                                handleUpdateService(e, item?._id);
                               }}
                             >
                               <div className="">
@@ -217,7 +224,7 @@ const DashboardAllArticles = () => {
                   <Link>
                     <button
                       className="btn btn-primary btn-sm -ml-5"
-                      // onClick={() => handleDelete(item._id)}
+                      onClick={() => handlePremium(item._id)}
                     >
                       Premium
                     </button>

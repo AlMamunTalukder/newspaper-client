@@ -100,7 +100,7 @@ const Navbar = () => {
       {user && (
         <li>
           <NavLink
-            to="/manageServices"
+            to="/premiumArticles"
             className={({ isActive, isPending }) =>
               isPending
                 ? "pending"
