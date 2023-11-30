@@ -7,7 +7,7 @@ const UserProfile = () => {
   console.log(userProfile);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://newspaper-final-server.vercel.app/users/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setUserProfile(data));
   }, [user]);

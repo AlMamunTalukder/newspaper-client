@@ -15,7 +15,7 @@ const AddPublisher = () => {
     };
     console.log(addPublisher);
 
-    fetch("http://localhost:5000/publishers", {
+    fetch("https://newspaper-final-server.vercel.app/publishers", {
       method: "POST",
       headers: {
         "content-type": "application/json",

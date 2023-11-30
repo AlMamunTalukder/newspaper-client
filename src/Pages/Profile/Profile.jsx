@@ -4,7 +4,7 @@ const Profile = () => {
   const [publisher, setPublisher] = useState([]);
   console.log(publisher);
   useEffect(() => {
-    fetch("http://localhost:5000/publishers")
+    fetch("https://newspaper-final-server.vercel.app/publishers")
       .then((res) => res.json())
       .then((data) => setPublisher(data));
   }, []);

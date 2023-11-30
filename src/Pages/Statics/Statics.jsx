@@ -7,7 +7,7 @@ const Statics = () => {
   console.log(userStatics);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://newspaper-final-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setUserStatics(data));
   }, []);

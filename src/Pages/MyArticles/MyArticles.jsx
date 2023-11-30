@@ -10,7 +10,7 @@ const MyArticles = () => {
   const [myArticles, setMyArticles] = useState([]);
   console.log(myArticles);
   useEffect(() => {
-    fetch(`http://localhost:5000/article/${user?.email}`)
+    fetch(`https://newspaper-final-server.vercel.app/article/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyArticles(data));
   }, [user]);
@@ -27,7 +27,7 @@ const MyArticles = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/article/${_id}`, {
+        fetch(`https://newspaper-final-server.vercel.app/article/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -56,7 +56,7 @@ const MyArticles = () => {
       description,
     };
     console.log(purchase);
-    fetch(`http://localhost:5000/article/${_id}`, {
+    fetch(`https://newspaper-final-server.vercel.app/article/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -7,7 +7,7 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/article/status/approved")
+    fetch("https://newspaper-final-server.vercel.app/article/status/approved")
       .then((res) => res.json())
       .then((data) => setArticles(data));
   }, []);

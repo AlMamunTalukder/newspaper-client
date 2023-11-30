@@ -40,7 +40,8 @@ const router = createBrowserRouter([
       {
         path: "/addArticles",
         element: <AddArticles />,
-        loader: () => fetch("http://localhost:5000/publishers"),
+        loader: () =>
+          fetch("https://newspaper-final-server.vercel.app/publishers"),
       },
       {
         path: "/allArticles",
@@ -49,13 +50,18 @@ const router = createBrowserRouter([
             <AllArticles />
           </PrivateRouter>
         ),
-        loader: () => fetch("http://localhost:5000/article/status/approved"),
+        loader: () =>
+          fetch(
+            "https://newspaper-final-server.vercel.app/article/status/approved"
+          ),
       },
       {
         path: "/details/:id",
         element: <ArticlesDetail />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/articles/${params.id}`),
+          fetch(
+            `https://newspaper-final-server.vercel.app/articles/${params.id}`
+          ),
       },
       {
         path: "/subscription",
@@ -85,7 +91,9 @@ const router = createBrowserRouter([
         path: "/detail/:id",
         element: <ArticlesDetail />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/article/${params.id}`),
+          fetch(
+            `https://newspaper-final-server.vercel.app/article/${params.id}`
+          ),
       },
       {
         path: "/premiumArticles",

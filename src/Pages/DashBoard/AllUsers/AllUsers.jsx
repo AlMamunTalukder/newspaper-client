@@ -5,7 +5,7 @@ const AllUsers = () => {
   console.log(allUsers);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://newspaper-final-server.vercel.app/users")
       .then((res) => res.json())
       .then((data) => setAllUsers(data));
   }, []);

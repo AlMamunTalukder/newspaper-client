@@ -5,7 +5,7 @@ const PremuimArticles = () => {
   const [premiumArticles, setPremiumArticles] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/article/status/premium")
+    fetch("https://newspaper-final-server.vercel.app/article/status/premium")
       .then((res) => res.json())
       .then((data) => setPremiumArticles(data));
   }, []);

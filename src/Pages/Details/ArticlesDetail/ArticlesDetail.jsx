@@ -8,12 +8,15 @@ const ArticlesDetail = () => {
 
   useEffect(() => {
     if (_id) {
-      fetch(`http://localhost:5000/articles/incrementView/${_id}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      fetch(
+        `https://newspaper-final-server.vercel.app/articles/incrementView/${_id}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     }
   }, [_id]);
   return (
