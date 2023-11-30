@@ -3,9 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "./../../Authentication/Providers/AuthProvider";
 import { Helmet } from "react-helmet";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Login = () => {
   const { googleSignIn, signIn } = useContext(AuthContext);
+  const axiosPublic = useAxiosPublic();
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -18,6 +20,12 @@ const Login = () => {
   const handleGoogleLogIn = () => {
     googleSignIn().then((response) => {
       console.log(response.user);
+      const userInfo = {
+        name: response.user?.displayName,
+        email: response.user?.email,
+        img: response.user?.photoURL,
+      };
+      axiosPublic.post("/users", userInfo).then((res) => console.log(res.data));
       swal("Welcome", "Log in Successful", "success");
       navigate(location?.state ? location?.state : "/");
     });

@@ -10,7 +10,7 @@ const DashboardAllArticles = () => {
   const [myArticles, setMyArticles] = useState([]);
   console.log(myArticles);
   useEffect(() => {
-    fetch(`http://localhost:5000/articles`)
+    fetch("http://localhost:5000/articles")
       .then((res) => res.json())
       .then((data) => setMyArticles(data));
   }, [user]);

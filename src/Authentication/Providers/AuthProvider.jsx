@@ -51,6 +51,12 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
 
   useEffect(() => {
     const keepUser = onAuthStateChanged(auth, (currentUser) => {
@@ -67,7 +73,15 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  const authInfo = { signUp, signIn, googleSignIn, user, logOut, loading };
+  const authInfo = {
+    signUp,
+    signIn,
+    googleSignIn,
+    user,
+    logOut,
+    loading,
+    updateUserProfile,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

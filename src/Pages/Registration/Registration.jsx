@@ -4,20 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../Authentication/Providers/AuthProvider";
 import { Helmet } from "react-helmet";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Registration = () => {
+  const axiosPublic = useAxiosPublic();
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [img, setImg] = useState("");
 
-  const { signUp } = useContext(AuthContext);
+  const { signUp, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegisterAuth = (e) => {
     e.preventDefault();
-
     if (!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(password)) {
       swal(
         "Error",
@@ -27,13 +28,27 @@ const Registration = () => {
       setError("");
     } else {
       setError("");
-      if (email) {
-        signUp(email, password, name, img).then((result) => {
+      if (email && name && img) {
+        signUp(email, password).then((result) => {
           console.log(result);
+          updateUserProfile(e.name, e.img).then(() => {
+            const userInfo = {
+              name: name,
+              email: email,
+              img: img,
+            };
+            axiosPublic.post("/users", userInfo).then((res) => {
+              if (res.data.insertedId) {
+                console.log("user added to the database");
 
-          swal("Welcome", "Account Create Successfully ", "success");
-          navigate("/");
+                swal("Welcome", "Account Created Successfully", "success");
+                navigate("/");
+              }
+            });
+          });
         });
+      } else {
+        setError("Please fill in all the required fields.");
       }
     }
   };
